@@ -1,4 +1,4 @@
-const KOFI_URL = "https://ko-fi.com/yourname";
+const KOFI_URL = "https://ko-fi.com/airfiledrop";
 
 import { Coffee, Heart } from "lucide-react";
 import { Dialog } from "./Dialog";
