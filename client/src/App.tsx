@@ -121,7 +121,7 @@ export default function App() {
           <button
               type="button"
               onClick={() => setSupportOpen(true)}
-              aria-label="Support DropFlow"
+              aria-label="Support AirFileDrop"
               className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-slate-100 transition hover:bg-white/10"
           >
             <Heart className="h-4 w-4 text-rose-300" aria-hidden />
@@ -189,9 +189,9 @@ export default function App() {
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">
                 {state.membership.network
-                  ? "Open DropFlow on another device on the same Wi-Fi and it will show up here. Not appearing? Pair with a QR code instead."
+                  ? "Open AirFileDrop on another device on the same Wi-Fi and it will show up here. Not appearing? Pair with a QR code instead."
                   : grouped
-                    ? "Open DropFlow on another device and pair it with the same code. It will show up here right away."
+                    ? "Open AirFileDrop on another device and pair it with the same code. It will show up here right away."
                     : "For privacy, devices only see each other after pairing. Scan a QR code or enter a code on your other device."}
               </p>
               <button

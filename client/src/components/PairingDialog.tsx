@@ -74,7 +74,7 @@ function RoomCard({ room, lanAddresses }: { room: RoomInfo; lanAddresses: string
         <p className="mt-2 text-xs text-slate-400">Scan with your phone's camera to pair instantly</p>
         {unreachable && (
           <p className="mt-2 rounded-lg bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
-            This page is open as localhost, which other devices can't reach. Open DropFlow using this
+            This page is open as localhost, which other devices can't reach. Open AirFileDrop using this
             computer's network address instead.
           </p>
         )}

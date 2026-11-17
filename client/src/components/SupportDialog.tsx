@@ -10,13 +10,13 @@ interface SupportDialogProps {
 
 export function SupportDialog({ open, onClose }: SupportDialogProps) {
     return (
-        <Dialog open={open} onClose={onClose} title="Support DropFlow" testId="support-dialog">
+        <Dialog open={open} onClose={onClose} title="Support AirFileDrop" testId="support-dialog">
             <div className="flex flex-col items-center text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/25 to-teal-400/20 ring-1 ring-white/10">
           <Heart className="h-7 w-7 text-teal-300" aria-hidden />
         </span>
                 <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                    DropFlow is free, has no ads, and never sees your files. If it saved you some time, you can
+                    AirFileDrop is free, has no ads, and never sees your files. If it saved you some time, you can
                     support it with a small tip. Thank you!
                 </p>
                 <a
@@ -29,7 +29,7 @@ export function SupportDialog({ open, onClose }: SupportDialogProps) {
                     Support on Ko-fi
                 </a>
                 <p className="mt-3 text-xs text-slate-500">
-                    Payments are handled by Ko-fi. DropFlow never sees your payment details.
+                    Payments are handled by Ko-fi. AirFileDrop never sees your payment details.
                 </p>
             </div>
         </Dialog>

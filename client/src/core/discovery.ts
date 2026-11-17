@@ -98,7 +98,7 @@ export class DiscoveryClient {
     s.on("session:replaced", () => {
       this.stored = { ...this.stored, sessionId: undefined, resumeToken: undefined };
       saveSession(this.stored);
-      this.store.set({ notice: "DropFlow was opened in another tab, so this tab got a new identity." });
+      this.store.set({ notice: "AirFileDrop was opened in another tab, so this tab got a new identity." });
       setTimeout(() => s.connect(), 500);
     });
     s.on("peers:update", ({ peers }) => this.store.set({ peers }));
