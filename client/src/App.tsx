@@ -1,4 +1,5 @@
-import { Link2, TriangleAlert, X } from "lucide-react";
+import { Link2, TriangleAlert, X, Heart } from "lucide-react";
+import { SupportDialog } from "./components/SupportDialog";
 import type { PeerInfo } from "@dropflow/shared";
 import { useEffect, useState } from "react";
 import { ConnectionStatus } from "./components/ConnectionStatus";
@@ -49,6 +50,7 @@ export default function App() {
   const [pairingOpen, setPairingOpen] = useState(false);
   const connected = state.status === "connected";
   const grouped = state.membership.dev || state.membership.network || state.membership.rooms.length > 0;
+  const [supportOpen, setSupportOpen] = useState(false);
 
   useEffect(() => {
     if (!transfers.mustSaveManually) return;
@@ -116,7 +118,15 @@ export default function App() {
         {/* Connection Status and Pair Button */}
         <div className="flex items-center gap-2">
           <ConnectionStatus status={state.status} />
-
+          <button
+              type="button"
+              onClick={() => setSupportOpen(true)}
+              aria-label="Support DropFlow"
+              className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-slate-100 transition hover:bg-white/10"
+          >
+            <Heart className="h-4 w-4 text-rose-300" aria-hidden />
+            <span className="hidden sm:inline">Support</span>
+          </button>
           <button
               type="button"
               onClick={() => setPairingOpen(true)}
@@ -218,7 +228,7 @@ export default function App() {
           onClose={closeSheet}
         />
       )}
-
+      <SupportDialog open={supportOpen} onClose={() => setSupportOpen(false)} />
       <PairingDialog
         open={pairingOpen}
         onClose={() => setPairingOpen(false)}
