@@ -70,6 +70,24 @@
   }
 }
 
+@keyframes stage-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
 html,
 body,
 #root {
@@ -79,15 +97,63 @@ body,
 body {
   @apply bg-navy-950 font-sans text-slate-100 antialiased;
   background-image:
-    radial-gradient(1200px 600px at 15% -10%, rgb(37 99 235 / 0.18), transparent 60%),
-    radial-gradient(900px 500px at 95% 10%, rgb(20 184 166 / 0.12), transparent 60%),
-    radial-gradient(800px 600px at 50% 110%, rgb(14 165 233 / 0.1), transparent 60%);
+          radial-gradient(1200px 600px at 15% -10%, rgb(37 99 235 / 0.18), transparent 60%),
+          radial-gradient(900px 500px at 95% 10%, rgb(20 184 166 / 0.12), transparent 60%),
+          radial-gradient(800px 600px at 50% 110%, rgb(14 165 233 / 0.1), transparent 60%);
   background-attachment: fixed;
   -webkit-tap-highlight-color: transparent;
 }
 
 .glass {
   @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+}
+
+.radar-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.radar-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  max-width: 26rem;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgb(56 189 248 / 0.22), rgb(45 212 191 / 0.08) 45%, transparent 70%);
+  filter: blur(24px);
+  animation: stage-glow 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.radar-stage > div {
+  width: clamp(12rem, min(70vw, 34vh), 22rem);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.radar-stage.is-compact > div {
+  width: clamp(9rem, min(50vw, 24vh), 14rem);
+}
+
+@media (min-width: 1024px) {
+  .radar-stage > div,
+  .radar-stage.is-compact > div {
+    width: clamp(16rem, 58vh, 30rem);
+  }
+}
+
+.text-gradient {
+  background-image: linear-gradient(90deg, #60a5fa, #38bdf8, #2dd4bf, #38bdf8, #60a5fa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
